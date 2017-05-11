@@ -1,4 +1,5 @@
 *~
+src/main/resources/secrets/
 
 target/
 pom.xml.tag
