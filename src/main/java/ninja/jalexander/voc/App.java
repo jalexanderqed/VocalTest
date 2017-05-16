@@ -7,8 +7,25 @@ import java.nio.file.Files;
 
 import static spark.Spark.*;
 
+import com.machinepublishers.jbrowserdriver.Timezone;
+import com.machinepublishers.jbrowserdriver.JBrowserDriver;
+import com.machinepublishers.jbrowserdriver.Settings;
+
 public class App {
     public static void main(String[] args) {
+        JBrowserDriver driver = new JBrowserDriver(Settings.builder().
+                timezone(Timezone.AMERICA_NEWYORK).build());
+
+        driver.get("http://jalexander.ninja");
+
+        System.out.println(driver.getPageSource());
+        System.out.println(driver.getStatusCode());
+        System.out.println(driver.getTitle());
+
+        driver.quit();
+
+        if(true) return;
+
         URL testUrl = App.class.getResource("/data/test.txt");
         if (testUrl == null) {
             System.err.println("Could not read from test.txt");
