@@ -7,24 +7,21 @@ import java.nio.file.Files;
 
 import static spark.Spark.*;
 
-public class App 
-{
-    public static void main( String[] args )
-    {
+public class App {
+    public static void main(String[] args) {
         URL testUrl = App.class.getResource("/data/test.txt");
-        if(testUrl == null){
-            System.out.println("Could not read from test.txt");
+        if (testUrl == null) {
+            System.err.println("Could not read from test.txt");
             System.exit(1);
         }
 
         File testFile = new File(testUrl.getFile());
 
-        try{
-            Files.lines(testFile.toPath()).forEach((String str) ->{
-                System.out.println(str);
+        try {
+            Files.lines(testFile.toPath()).forEach((String str) -> {
+                System.err.println(str);
             });
-        }
-        catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
