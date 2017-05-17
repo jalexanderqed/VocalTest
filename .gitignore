@@ -1,5 +1,6 @@
 *~
 src/main/resources/secrets/
+.idea/vcs.xml
 
 target/
 pom.xml.tag
